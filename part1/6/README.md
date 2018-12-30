@@ -1,0 +1,1 @@
+docker run -v $(pwd)/logs.txt:/app/logs.txt -d --rm -p 8000:8000 backendsample

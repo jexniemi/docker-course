@@ -1,0 +1,1 @@
+$ docker run --name frontend --rm -p 5000:5000 -d frontsample
