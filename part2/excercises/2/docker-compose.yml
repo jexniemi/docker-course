@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+
+  backend:
+    image: jexniemi/backend-example-docker
+    container_name: backend-example-docker
+    ports: 
+      - 8000:8000
+    environment:
+      - FRONT_URL=http://localhost:5000
+      - REDIS=redis
+
+  redis:
+    image: redis:5.0.3
