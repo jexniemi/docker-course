@@ -1,0 +1,33 @@
+version: "3"
+
+services:
+
+  frontend:
+    image: jexniemi/frontend-example-docker
+    container_name: frontend-example-docker
+    ports: 
+      - 5000:5000
+    environment:
+      - API_URL=http://localhost:8000
+
+  backend:
+    image: jexniemi/backend-example-docker
+    container_name: backend-example-docker
+    ports: 
+      - 8000:8000
+    environment:
+      - FRONT_URL=http://localhost:5000
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=secretpassword
+      - DB_NAME=postgres
+      - DB_HOST=db
+      - REDIS=redis
+
+  db:
+    image: postgres:11.1
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=secretpassword
+
+  redis:
+    image: redis:5.0.3
