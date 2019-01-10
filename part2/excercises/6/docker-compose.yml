@@ -28,6 +28,14 @@ services:
     environment:
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=secretpassword
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
 
   redis:
     image: redis:5.0.3
+    volumes:
+      - redis-data:/data
+
+volumes:
+  redis-data:
+  postgres-data:
